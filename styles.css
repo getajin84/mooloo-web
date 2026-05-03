@@ -1,0 +1,351 @@
+/* ==========================================
+   mooloo - common styles
+   ========================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --navy-900: #001028;
+    --navy-800: #001830;
+    --navy-700: #002840;
+    --navy-600: #184050;
+    --teal-500: #00B080;
+    --cyan-500: #00B0D0;
+    --mint-400: #14F0C8;
+    --purple-500: #7C3AED;
+
+    --white: #FFFFFF;
+    --gray-100: #F5F7FA;
+    --gray-300: #D1D5DB;
+    --gray-500: #6B7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+
+    --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+    --max-width: 720px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+}
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--gray-900);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Landing page */
+.landing {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at top, rgba(0, 176, 208, 0.15), transparent 60%),
+        linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.landing__logo {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--mint-400), var(--cyan-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.landing__tagline {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+    max-width: 480px;
+}
+
+.landing__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 176, 128, 0.15);
+    border: 1px solid rgba(0, 176, 128, 0.3);
+    border-radius: 999px;
+    font-size: 0.875rem;
+    color: var(--mint-400);
+    margin-bottom: 4rem;
+}
+
+.landing__status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--mint-400);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.landing__links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.landing__links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.landing__links a:hover {
+    color: var(--mint-400);
+}
+
+.landing__footer {
+    position: fixed;
+    bottom: 1.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Document pages */
+.doc {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+}
+
+.doc__nav {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.doc__nav a {
+    color: var(--navy-700);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.doc__nav a:hover {
+    color: var(--teal-500);
+}
+
+.doc h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.doc__meta {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    margin-bottom: 2rem;
+}
+
+.doc__meta strong {
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.doc__company-info {
+    background: var(--gray-100);
+    border-left: 3px solid var(--teal-500);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 2.5rem;
+    font-size: 0.9375rem;
+}
+
+.doc__company-info dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1.5rem;
+}
+
+.doc__company-info dt {
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+.doc__company-info dd {
+    color: var(--gray-900);
+}
+
+.doc__intro {
+    font-size: 0.9375rem;
+    color: var(--gray-700);
+    margin-bottom: 2.5rem;
+}
+
+.doc h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.doc h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy-800);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.doc p {
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+    color: var(--gray-700);
+}
+
+.doc ol,
+.doc ul {
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    color: var(--gray-700);
+}
+
+.doc li {
+    margin-bottom: 0.5rem;
+}
+
+.doc strong {
+    color: var(--gray-900);
+    font-weight: 600;
+}
+
+.doc table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: 0 0 0 1px var(--gray-300);
+}
+
+.doc th {
+    background: var(--gray-100);
+    color: var(--navy-800);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.doc td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--gray-300);
+    color: var(--gray-700);
+    vertical-align: top;
+}
+
+.doc tr:last-child td {
+    border-bottom: none;
+}
+
+.doc__highlight {
+    background: rgba(0, 176, 128, 0.06);
+    border-left: 3px solid var(--teal-500);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    margin: 1rem 0 1.5rem;
+    font-size: 0.875rem;
+    color: var(--gray-700);
+}
+
+.doc__footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-300);
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .landing__logo {
+        font-size: 2.5rem;
+    }
+
+    .landing__tagline {
+        font-size: 1rem;
+    }
+
+    .doc {
+        padding: 2rem 1rem 4rem;
+    }
+
+    .doc h1 {
+        font-size: 1.5rem;
+    }
+
+    .doc h2 {
+        font-size: 1.125rem;
+    }
+
+    .doc table {
+        font-size: 0.8125rem;
+    }
+
+    .doc th,
+    .doc td {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .doc__company-info dl {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+
+    .doc__company-info dt {
+        margin-top: 0.5rem;
+    }
+}
