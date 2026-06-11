@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>mooloo 이용권 안내</title>
+<meta name="description" content="mooloo 프리미엄 멤버십 이용권 안내 — 요금, 제공 기간, 환불 정책" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link
+  rel="stylesheet"
+  as="style"
+  crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+/>
+<style>
+  :root {
+    --ink: #0c0a1a;
+    --ink-2: #1c1830;
+    --paper: #ffffff;
+    --paper-2: #f6f5fb;
+    --line: #e7e4f2;
+    --text: #2a2640;
+    --text-soft: #6b6685;
+    --purple: #7c3aed;
+    --purple-deep: #5b21b6;
+    --mint: #00cfbe;
+    --mint-soft: #14f0c8;
+    --radius: 20px;
+    --maxw: 760px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color: var(--text);
+    background: var(--paper);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- HERO (dark) ---------- */
+  .hero {
+    background:
+      radial-gradient(120% 120% at 85% 0%, rgba(0, 207, 190, 0.22), transparent 55%),
+      radial-gradient(120% 120% at 0% 100%, rgba(124, 58, 237, 0.35), transparent 55%),
+      var(--ink);
+    color: #fff;
+    padding: 72px 0 88px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--mint-soft);
+    background: rgba(0, 207, 190, 0.1);
+    border: 1px solid rgba(0, 207, 190, 0.3);
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 6vw, 44px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 22px 0 14px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero .lede {
+    font-size: clamp(15px, 2.6vw, 18px);
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 520px;
+  }
+
+  /* ---------- product card (= 상품 이미지) ---------- */
+  .card-stage {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .mcard {
+    width: min(100%, 420px);
+    aspect-ratio: 1.6 / 1;
+    border-radius: 22px;
+    padding: 26px 28px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 45%, #0e3b3a 100%);
+    box-shadow: 0 24px 60px rgba(15, 9, 40, 0.55);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mcard::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20, 240, 200, 0.55), transparent 70%);
+    filter: blur(4px);
+  }
+
+  .mcard .brand {
+    font-size: 19px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.01em;
+    z-index: 1;
+  }
+  .mcard .brand span { color: var(--mint-soft); }
+
+  .mcard .tier {
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .mcard .tier strong {
+    display: block;
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    margin-top: 2px;
+    letter-spacing: -0.02em;
+  }
+
+  .mcard .wave {
+    position: absolute;
+    left: 0; bottom: 0; width: 100%;
+    opacity: 0.9;
+    z-index: 0;
+  }
+
+  /* ---------- body sections (light) ---------- */
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .kicker {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink-2);
+    margin-bottom: 18px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .price {
+    font-size: clamp(34px, 8vw, 48px);
+    font-weight: 800;
+    color: var(--ink-2);
+    letter-spacing: -0.03em;
+  }
+  .price .unit { font-size: 20px; font-weight: 600; color: var(--text-soft); }
+  .price-note { color: var(--text-soft); font-size: 15px; }
+
+  ul.features { list-style: none; margin-top: 22px; display: grid; gap: 14px; }
+  ul.features li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  ul.features li .ic {
+    flex: 0 0 auto;
+    width: 26px; height: 26px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--purple), var(--mint));
+    display: grid; place-items: center;
+    color: #fff; font-size: 14px; font-weight: 700;
+    margin-top: 1px;
+  }
+  ul.features li b { color: var(--ink-2); font-weight: 700; }
+  ul.features li p { color: var(--text-soft); font-size: 14px; margin-top: 2px; }
+
+  .info-grid { display: grid; gap: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .info-grid .row { display: grid; grid-template-columns: 160px 1fr; }
+  .info-grid .row + .row { border-top: 1px solid var(--line); }
+  .info-grid .k { background: var(--paper-2); padding: 16px 18px; font-weight: 700; color: var(--ink-2); font-size: 15px; }
+  .info-grid .v { padding: 16px 18px; color: var(--text); font-size: 15px; }
+  @media (max-width: 540px) {
+    .info-grid .row { grid-template-columns: 1fr; }
+    .info-grid .k { border-bottom: 1px solid var(--line); }
+  }
+
+  ol.policy { margin: 8px 0 0 0; padding-left: 0; list-style: none; counter-reset: p; display: grid; gap: 16px; }
+  ol.policy li { position: relative; padding-left: 44px; color: var(--text); }
+  ol.policy li::before {
+    counter-increment: p;
+    content: counter(p);
+    position: absolute; left: 0; top: 0;
+    width: 28px; height: 28px;
+    border-radius: 9px;
+    background: var(--ink-2); color: #fff;
+    display: grid; place-items: center;
+    font-size: 14px; font-weight: 700;
+  }
+  ol.policy li b { color: var(--ink-2); }
+
+  .callout {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(0, 207, 190, 0.06));
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-top: 22px;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 26px;
+    background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 12px 28px rgba(124, 58, 237, 0.35);
+  }
+
+  footer {
+    background: var(--paper-2);
+    padding: 36px 0 48px;
+    color: var(--text-soft);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  footer .biz { display: grid; gap: 2px; }
+  footer a { color: var(--text-soft); }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">mooloo 이용권</span>
+      <h1>물과 연결된 모든 순간을,<br />하나의 멤버십으로</h1>
+      <p class="lede">
+        전국 수영장 정보부터 강습 예약, 강사 매칭, 나의 수영·건강 기록까지.
+        mooloo 프리미엄 멤버십으로 더 편하게 누리세요.
+      </p>
+
+      <!-- 상품 이미지: 멤버십 카드 비주얼 -->
+      <div class="card-stage">
+        <div class="mcard" role="img" aria-label="mooloo 프리미엄 멤버십 카드">
+          <div class="brand">moo<span>loo</span></div>
+          <svg class="wave" viewBox="0 0 420 80" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 40 C 60 10, 120 70, 210 40 S 360 10, 420 40 L420 80 L0 80 Z" fill="rgba(20,240,200,0.18)"/>
+            <path d="M0 52 C 70 28, 140 78, 230 52 S 370 28, 420 52 L420 80 L0 80 Z" fill="rgba(255,255,255,0.10)"/>
+          </svg>
+          <div class="tier">
+            PREMIUM MEMBERSHIP
+            <strong>프리미엄 멤버십</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ===== 금액 ===== -->
+    <section id="price">
+      <p class="kicker">이용 요금</p>
+      <h2>월 정기 구독 이용권</h2>
+      <div class="price-row">
+        <span class="price">900<span class="unit">원 / 월</span></span>
+      </div>
+      <p class="price-note">부가세 포함 · 매월 자동 결제 · 약정 없이 언제든 해지 가능</p>
+      <a class="cta" href="/checkout">멤버십 가입하기</a>
+    </section>
+
+    <!-- ===== 상세 내용 ===== -->
+    <section id="detail">
+      <p class="kicker">상품 상세</p>
+      <h2>멤버십에 포함된 서비스</h2>
+      <ul class="features">
+        <li>
+          <span class="ic">✓</span>
+          <div><b>전국 수영장 정보 무제한 열람</b><p>전국 782개 수영 시설의 위치·시간·강습 정보를 제한 없이 확인할 수 있습니다.</p></div>
+        </li>
+        <li>
+          <span class="ic">✓</span>
+          <div><b>강습 예약 정보 우선 확인</b><p>관심 시설·강사의 강습 일정과 빈자리 정보를 먼저 받아볼 수 있습니다.</p></div>
+        </li>
+        <li>
+          <span class="ic">✓</span>
+          <div><b>강사 매칭 추천</b><p>수준과 목표에 맞는 프리랜서 수영 강사를 추천받습니다.</p></div>
+        </li>
+        <li>
+          <span class="ic">✓</span>
+          <div><b>수영·건강 기록 분석</b><p>건강 데이터(HealthKit / Health Connect)를 연동해 수영 기록을 분석해 드립니다.</p></div>
+        </li>
+        <li>
+          <span class="ic">✓</span>
+          <div><b>워터 라이프스타일 콘텐츠</b><p>멤버 전용 수영·수상 레저 콘텐츠를 제공합니다.</p></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== 서비스 제공 기간 ===== -->
+    <section id="period">
+      <p class="kicker">서비스 제공 기간</p>
+      <h2>언제부터 언제까지 이용하나요</h2>
+      <div class="info-grid">
+        <div class="row"><div class="k">제공 형태</div><div class="v">디지털 구독형 서비스(무형 서비스)</div></div>
+        <div class="row"><div class="k">이용 기간</div><div class="v">결제일로부터 30일(1개월) 단위로 이용</div></div>
+        <div class="row"><div class="k">자동 갱신</div><div class="v">매 결제일에 동일 금액으로 자동 갱신되어 이용이 연장됩니다.</div></div>
+        <div class="row"><div class="k">해지 시점</div><div class="v">해지하면 그 시점까지의 이용 기간은 유지되며, 다음 결제일부터 결제·갱신이 중단됩니다.</div></div>
+      </div>
+    </section>
+
+    <!-- ===== 환불 정책 ===== -->
+    <section id="refund">
+      <p class="kicker">환불 정책</p>
+      <h2>환불 및 청약철회 안내</h2>
+      <ol class="policy">
+        <li><b>결제 후 7일 이내 · 미이용 시 전액 환불.</b> 결제일로부터 7일 이내이고 멤버십 콘텐츠를 이용하지 않은 경우, 전액 환불(청약철회)이 가능합니다.</li>
+        <li><b>이용을 시작한 경우.</b> 멤버십 콘텐츠 이용을 시작한 뒤에는, 이미 이용한 기간을 제외한 잔여 기간에 대해 일할 계산하여 환불해 드립니다.</li>
+        <li><b>정기결제 해지.</b> 다음 결제일 이전에 언제든 해지할 수 있으며, 해지 시 다음 회차부터 결제되지 않습니다. 이미 결제된 당월 이용 기간은 그대로 유지됩니다.</li>
+        <li><b>회사 귀책 사유.</b> 서비스 장애 등 회사의 귀책 사유로 이용이 불가능했던 경우, 해당 기간에 대해 전액 환불해 드립니다.</li>
+        <li><b>환불 신청.</b> 아래 고객센터 이메일로 신청해 주시면 영업일 기준 3일 이내 처리하며, 환불은 결제 수단으로 환급됩니다.</li>
+      </ol>
+      <div class="callout">
+        문의 및 환불 신청: <a href="mailto:mooloo0402@gmail.com">mooloo0402@gmail.com</a> ·
+        결제는 토스페이먼츠를 통해 안전하게 처리됩니다.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (사업자 정보) ===== -->
+  <footer>
+    <div class="wrap biz">
+      <div>상호: mooloo(물루) · 대표: 조인곤</div>
+      <div>사업자등록번호: 770-68-00583</div>
+      <div>주소: [사업장 주소 입력 필요]</div>
+      <div>고객센터: <a href="mailto:mooloo0402@gmail.com">mooloo0402@gmail.com</a></div>
+      <div>통신판매업 신고번호: [신고 후 입력]</div>
+      <div style="margin-top:10px;">
+        <a href="/privacy">개인정보처리방침</a> · <a href="/terms">이용약관</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
